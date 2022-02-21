@@ -63,7 +63,8 @@ class ParameterHandler:
                                     'Background model definition file': '',\
                                     'Background materials definition file': '',\
                                     'Active domain box': [0,0,0,0,0,0],\
-                                    'Active domain mask': ''}
+                                    'Active domain mask': '',\
+                                    'Cell weights': ''}
             
         self.parameters['Survey'] = {'Frequencies file': '',\
                                     'Times file': '',\
@@ -95,7 +96,8 @@ class ParameterHandler:
                                             'Inner solver type': 'Krylov',\
                                             'Steplength iterations': 1,\
                                             'Step lengths file': '',\
-                                            'Output files prefix': 'inv'}
+                                            'Output files prefix': 'inv',\
+                                            'Output iteration increment': 0}
         
         
     def getitem(self, section, parameter):
