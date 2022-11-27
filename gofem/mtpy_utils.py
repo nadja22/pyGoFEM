@@ -18,7 +18,8 @@ from gofem.data_utils import *
 def write_edi_collection_to_gofem(outfile, edi_collection = None, mt_objects = None,\
                                   error_floor = 0.05, data_type = 'Z',\
                                   period_range = [-math.inf, math.inf],\
-                                  error_floor_type = 'rowwise'):
+                                  error_floor_type = 'rowwise',
+                                  period_list = []):
     '''
         Write down MT impdeance tensors from the edi collection 
         to the GoFEM data file with the given error floor.
@@ -79,7 +80,12 @@ def write_edi_collection_to_gofem(outfile, edi_collection = None, mt_objects = N
     else:
         raise RuntimeError('Provide EDI collection or list of MT objects')
     
+    if len(period_list)!=0:
+        all_frequencies = np.sort( 1 / np.asarray(period_list) ).tolist()
+
+    print("All frequencies: ", all_frequencies)
     for freq in all_frequencies:
+    
         
         period = 1./freq
         if period < period_range[0] or period > period_range[1]:
