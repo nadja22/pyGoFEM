@@ -2,7 +2,7 @@ name: pygofem
 channels:
   - conda-forge
 dependencies:
-  - python=3.8
+  - python=3.9
   - ipywidgets
   - gcc_linux-64
   - gfortran_linux-64
